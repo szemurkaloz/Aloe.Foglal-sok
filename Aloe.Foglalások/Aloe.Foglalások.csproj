@@ -90,7 +90,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\DolgozóListaViewModel.cs" />
+    <Compile Include="ViewModels\DolgozóiListaViewModel.cs" />
     <Compile Include="ViewModels\MenüViewModel.cs" />
     <Compile Include="Views\DolgozóiListaView.xaml.cs">
       <DependentUpon>DolgozóiListaView.xaml</DependentUpon>

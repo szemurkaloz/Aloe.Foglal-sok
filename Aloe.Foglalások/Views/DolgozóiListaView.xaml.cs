@@ -1,7 +1,6 @@
 ﻿namespace Aloe.Foglalások.Views
 {
     using Catel.Windows;
-    usuimng
     using ViewModels;
 
     /// <summary>

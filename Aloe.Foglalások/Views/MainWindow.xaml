@@ -17,13 +17,14 @@
                 <Views:MenüView />
             </telerik:RadExpander.Content>
         </telerik:RadExpander>
+        <Views:MenüView />
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem Content="Ready" Margin="3,0,0,0"/>
             <StatusBarItem HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal"/>
             </StatusBarItem>
         </StatusBar>
-
+        
     </DockPanel>
 
     <!-- <catel:StackGrid x:Name="LayoutRoot">

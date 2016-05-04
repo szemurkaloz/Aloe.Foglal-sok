@@ -3,10 +3,11 @@
     using Catel.MVVM;
     using System.Threading.Tasks;
 
-    public class DolgozóListaViewModel : ViewModelBase
+    public class DolgozóiListaViewModel : ViewModelBase
     {
-        public DolgozóListaViewModel()
+        public DolgozóiListaViewModel()
         {
+               
         }
 
         public override string Title { get { return "Dolgozók listája"; } }
