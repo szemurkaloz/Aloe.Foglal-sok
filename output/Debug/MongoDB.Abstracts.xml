@@ -1,0 +1,734 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MongoDB.Abstracts</name>
+    </assembly>
+    <members>
+        <member name="T:MongoDB.Abstracts.IEntityQuery`2">
+            <summary>
+            An <c>interface</c> for common query operations.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityQuery`2.Find(`1)">
+            <summary>
+            Find the entity with the specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The key of the entity to find.</param>
+            <returns>An instance of TEnity that has the specified identifier if found, otherwise null.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityQuery`2.FindOne(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find the first entity using the specified <paramref name="criteria"/> expression.
+            </summary>
+            <param name="criteria">The criteria expression.</param>
+            <returns>
+            An instance of TEnity that matches the criteria if found, otherwise null.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityQuery`2.FindAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find all entities using the specified <paramref name="criteria"/> expression.
+            </summary>
+            <param name="criteria">The criteria expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityQuery`2.All">
+            <summary>
+            Get all entities as an <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <returns>An <see cref="T:System.Linq.IQueryable`1"/> of entities.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityQuery`2.Count">
+            <summary>
+            Gets the number of entities in the data store.
+            </summary>
+            <returns>The number of entities in the data store.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityQuery`2.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets the number of entities in the data store with the specified <paramref name="criteria"/>.
+            </summary>
+            <returns>The number of entities in the data store specified criteria.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityQuery`2.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Determines if the specified <paramref name="criteria"/> exists.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns><c>true</c> if criteria expression is found; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityQuery`2.EntityKey(`0)">
+            <summary>
+            Gets the key for the specified <paramref name="entity"/>.
+            </summary>
+            <param name="entity">The entity to get the key from.</param>
+            <returns>The key for the specified entity.</returns>
+        </member>
+        <member name="T:MongoDB.Abstracts.IEntityRepository`2">
+            <summary>
+            An <c>interface</c> for common data operations.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.Insert(`0)">
+            <summary>
+            Inserts the specified <paramref name="entity"/> to the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be inserted.</param>
+            <returns>The entity that was inserted.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.Insert(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Inserts the specified <paramref name="entities"/> to the underlying data repository.
+            </summary>
+            <param name="entities">The entities to be inserted.</param>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.InsertBatch(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Inserts the specified <paramref name="entities"/> in a batch operation to the underlying data repository.
+            </summary>
+            <param name="entities">The entities to be inserted.</param>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.Update(`0)">
+            <summary>
+            Updates the specified <paramref name="entity"/> in the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be updated.</param>
+            <returns>The entity that was updated.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.Update(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Updates the specified <paramref name="entities"/> in the underlying data repository.
+            </summary>
+            <param name="entities">The entities to be updated.</param>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.Save(`0)">
+            <summary>
+            Saves the specified <paramref name="entity"/> in the underlying data repository by inserting if doesn't exist, or updating if it does.
+            </summary>
+            <param name="entity">The entity to be updated.</param>
+            <returns>The entity that was updated.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.Save(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Saves the specified <paramref name="entities"/> in the underlying data repository by inserting if doesn't exist, or updating if it does.
+            </summary>
+            <param name="entities">The entities to be updated.</param>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.Delete(`1)">
+            <summary>
+            Deletes an entity with the specified <paramref name="key"/> from the underlying data repository.
+            </summary>
+            <param name="key">The key of the entity to delete.</param>
+            <returns>The number of documents deleted</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.Delete(`0)">
+            <summary>
+            Deletes the specified <paramref name="entity"/> from the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be deleted.</param>
+            <returns>The number of documents deleted</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.Delete(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Deletes the specified <paramref name="entities"/> from the underlying data repository.
+            </summary>
+            <param name="entities">The entities to be deleted.</param>
+            <returns>The number of documents deleted</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IEntityRepository`2.DeleteAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Deletes all from collection that meet the specified <paramref name="criteria" />.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+            <returns>The number of documents deleted</returns>
+        </member>
+        <member name="T:MongoDB.Abstracts.IMongoEntity">
+            <summary>
+            An <c>interface</c> for a MongoDB Entity
+            </summary>
+        </member>
+        <member name="P:MongoDB.Abstracts.IMongoEntity.Id">
+            <summary>
+            Gets or sets the identifier for the entity.
+            </summary>
+            <value>
+            The identifier for the entity.
+            </value>
+        </member>
+        <member name="P:MongoDB.Abstracts.IMongoEntity.Created">
+            <summary>
+            Gets or sets the date the entity was created.
+            </summary>
+            <value>
+            The date the entity was created.
+            </value>
+        </member>
+        <member name="P:MongoDB.Abstracts.IMongoEntity.Updated">
+            <summary>
+            Gets or sets the date the entity was updated.
+            </summary>
+            <value>
+            The date the entity was updated.
+            </value>
+        </member>
+        <member name="T:MongoDB.Abstracts.IMongoQuery`2">
+            <summary>
+            An <c>interface</c> for common MongoDB query operations.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="P:MongoDB.Abstracts.IMongoQuery`2.Collection">
+            <summary>
+            Gets the underling <see cref="T:MongoDB.Driver.IMongoCollection`1"/> used for queries.
+            </summary>
+            <value>
+            The underling <see cref="T:MongoDB.Driver.IMongoCollection`1"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoQuery`2.FindAsync(`1)">
+            <summary>
+            Find the entity with the specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The key of the entity to find.</param>
+            <returns>An instance of TEnity that has the specified identifier if found, otherwise null.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoQuery`2.FindOneAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find the first entity using the specified <paramref name="criteria"/> expression.
+            </summary>
+            <param name="criteria">The criteria expression.</param>
+            <returns>
+            An instance of TEnity that matches the criteria if found, otherwise null.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoQuery`2.FindAllAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find all entities using the specified <paramref name="criteria"/> expression.
+            </summary>
+            <param name="criteria">The criteria expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoQuery`2.CountAsync">
+            <summary>
+            Gets the number of entities in the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoQuery`2.CountAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets the number of entities in the collection with the specified <paramref name="criteria"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MongoDB.Abstracts.IMongoRepository`2">
+            <summary>
+            An <c>interface</c> for common MongoDB data operations.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoRepository`2.InsertAsync(`0)">
+            <summary>
+            Inserts the specified <paramref name="entity" /> to the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be inserted.</param>
+            <returns>
+            The entity that was inserted.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">entity</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoRepository`2.UpdateAsync(`0)">
+            <summary>
+            Updates the specified <paramref name="entity" /> in the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be updated.</param>
+            <returns>
+            The entity that was updated.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">entity</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoRepository`2.SaveAsync(`0)">
+            <summary>
+            Saves the specified <paramref name="entity" /> in the underlying data repository by inserting if doesn't exist, or updating if it does.
+            </summary>
+            <param name="entity">The entity to be updated.</param>
+            <returns>
+            The entity that was updated.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoRepository`2.DeleteAsync(`1)">
+            <summary>
+            Deletes an entity with the specified <paramref name="id" /> from the underlying data repository.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>The number of documents deleted</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoRepository`2.DeleteAsync(`0)">
+            <summary>
+            Deletes the specified <paramref name="entity" /> from the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be deleted.</param>
+            <returns>The number of documents deleted</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="entity"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoRepository`2.DeleteAll">
+            <summary>
+            Deletes all documents from MongoDB collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoRepository`2.DeleteAllAsync">
+            <summary>
+            Deletes all documents from MongoDB collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.IMongoRepository`2.DeleteAllAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Deletes all from collection that meet the specified <paramref name="criteria" />.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="T:MongoDB.Abstracts.MongoEntity">
+            <summary>
+            A base <c>class</c> for a MongoDB Entity
+            </summary>
+        </member>
+        <member name="P:MongoDB.Abstracts.MongoEntity.Id">
+            <summary>
+            Gets or sets the identifier for the entity.
+            </summary>
+            <value>
+            The identifier for the entity.
+            </value>
+        </member>
+        <member name="P:MongoDB.Abstracts.MongoEntity.Created">
+            <summary>
+            Gets or sets the date the entity was created.
+            </summary>
+            <value>
+            The date the entity was created.
+            </value>
+        </member>
+        <member name="P:MongoDB.Abstracts.MongoEntity.Updated">
+            <summary>
+            Gets or sets the date the entity was updated.
+            </summary>
+            <value>
+            The date the entity was updated.
+            </value>
+        </member>
+        <member name="T:MongoDB.Abstracts.MongoFactory">
+            <summary>
+            A helper class for getting MongoDB database connection.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoFactory.GetDatabaseFromConnectionString(System.String)">
+            <summary>
+            Gets the <see cref="T:MongoDB.Driver.IMongoDatabase"/> with the specified connection string.
+            </summary>
+            <param name="connectionString">The MongoDB connection string.</param>
+            <returns>An instance of <see cref="T:MongoDB.Driver.IMongoDatabase"/>.</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoFactory.GetDatabaseFromConnectionName(System.String)">
+            <summary>
+            Gets the <see cref="T:MongoDB.Driver.IMongoDatabase" /> with the specified connection name.
+            </summary>
+            <param name="connectionName">Name of the connection.</param>
+            <returns>
+            An instance of <see cref="T:MongoDB.Driver.IMongoDatabase" />.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="connectionName"/> is <see langword="null" />.</exception>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException">No connection string could be found in the application configuration file.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoFactory.GetDatabaseFromMongoUrl(MongoDB.Driver.MongoUrl)">
+            <summary>
+            Gets the <see cref="T:MongoDB.Driver.IMongoDatabase" /> with the specified <see cref="T:MongoDB.Driver.MongoUrl" />.
+            </summary>
+            <param name="mongoUrl">The mongo URL.</param>
+            <returns>
+            An instance of <see cref="T:MongoDB.Driver.IMongoDatabase" />.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoFactory.GetMongoUrl(System.String)">
+            <summary>
+            Gets the <see cref="T:MongoDB.Driver.MongoUrl" /> with the specified connection name.
+            </summary>
+            <param name="connectionName">Name of the connection.</param>
+            <returns>
+            An instance of <see cref="T:MongoDB.Driver.MongoUrl" />.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="connectionName"/> is <see langword="null" />.</exception>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException">No connection string could be found in the application configuration file.</exception>
+        </member>
+        <member name="T:MongoDB.Abstracts.MongoQueury`2">
+            <summary>
+            A MongoDB data query base class.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Abstracts.MongoRepository`2"/> class.
+            </summary>
+            <param name="connectionName">Name of the connection.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="connectionName"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.#ctor(MongoDB.Driver.MongoUrl)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Abstracts.MongoRepository`2"/> class.
+            </summary>
+            <param name="mongoUrl">The mongo URL.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="mongoUrl"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="P:MongoDB.Abstracts.MongoQueury`2.Collection">
+            <summary>
+            Gets the underling <see cref="T:MongoDB.Driver.IMongoCollection`1"/> used for queries.
+            </summary>
+            <value>
+            The underling <see cref="T:MongoDB.Driver.IMongoCollection`1"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.Find(`1)">
+            <summary>
+            Finds the entity with the specified identifier.
+            </summary>
+            <param name="key">The entity identifier.</param>
+            <returns>The entity with the specified identifier.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="key"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.FindAsync(`1)">
+            <summary>
+            Finds the entity with the specified identifier.
+            </summary>
+            <param name="key">The entity identifier.</param>
+            <returns>The entity with the specified identifier.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="key"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.FindOne(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find the first entity using the specified <paramref name="criteria" /> expression.
+            </summary>
+            <param name="criteria">The criteria expression.</param>
+            <returns>
+            An instance of TEnity that matches the criteria if found, otherwise null.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">criteria</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.FindOneAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find the first entity using the specified <paramref name="criteria" /> expression.
+            </summary>
+            <param name="criteria">The criteria expression.</param>
+            <returns>
+            An instance of TEnity that matches the criteria if found, otherwise null.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">criteria</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.FindAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find all entities using the specified <paramref name="criteria" /> expression.
+            </summary>
+            <param name="criteria">The criteria expression.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">criteria</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.FindAllAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find all entities using the specified <paramref name="criteria" /> expression.
+            </summary>
+            <param name="criteria">The criteria expression.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">criteria</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.All">
+            <summary>
+            Get all <typeparamref name="TEntity" /> entities as an IQueryable
+            </summary>
+            <returns>
+            IQueryable of <typeparamref name="TEntity" />.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.Count">
+            <summary>
+            Gets the number of entities in the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.CountAsync">
+            <summary>
+            Gets the number of entities in the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets the number of entities in the collection with the specified <paramref name="criteria" />.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.CountAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets the number of entities in the collection with the specified <paramref name="criteria" />.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Determines if the specified <paramref name="criteria" /> exists.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>
+              <c>true</c> if criteria expression is found; otherwise <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">criteria</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.EntityKey(`0)">
+            <summary>
+            Gets the key for the specified <paramref name="entity" />.
+            </summary>
+            <param name="entity">The entity to get the key from.</param>
+            <returns>
+            The key for the specified entity.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.KeyExpression(`1)">
+            <summary>
+            Gets the key expression with the specified <paramref name="key" />.
+            </summary>
+            <param name="key">The key to get expression with.</param>
+            <returns>
+            The key expression for the specified key.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.CollectionName">
+            <summary>
+            Gets the name of the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.CreateCollection">
+            <summary>
+            Creates the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.CreateCollection(MongoDB.Driver.IMongoDatabase,System.String)">
+            <summary>
+            Creates the collection.
+            </summary>
+            <param name="database">The database.</param>
+            <param name="collectionName">Name of the collection.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.EnsureIndexes(MongoDB.Driver.IMongoCollection{`0})">
+            <summary>
+            Create indexes on the collection.
+            </summary>
+            <param name="mongoCollection">The mongo collection.</param>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoQueury`2.System#IDisposable#Dispose">
+            <summary>
+            Releases unmanaged and managed resources.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Abstracts.MongoRepository`2">
+            <summary>
+            A MongoDB data repository base class.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Abstracts.MongoRepository`2"/> class.
+            </summary>
+            <param name="connectionName">Name of the connection.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="connectionName"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.#ctor(MongoDB.Driver.MongoUrl)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Abstracts.MongoRepository`2"/> class.
+            </summary>
+            <param name="mongoUrl">The mongo URL.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="mongoUrl"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.Insert(`0)">
+            <summary>
+            Inserts the specified <paramref name="entity" /> to the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be inserted.</param>
+            <returns>
+            The entity that was inserted.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">entity</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.InsertAsync(`0)">
+            <summary>
+            Inserts the specified <paramref name="entity" /> to the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be inserted.</param>
+            <returns>
+            The entity that was inserted.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">entity</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.Insert(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Inserts the specified <paramref name="entities" /> to the underlying data repository.
+            </summary>
+            <param name="entities"></param>
+            <exception cref="T:System.ArgumentNullException">entities</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.InsertBatch(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Inserts the specified <paramref name="entities" /> in a batch operation to the underlying data repository.
+            </summary>
+            <param name="entities">The entities to be inserted.</param>
+            <exception cref="T:System.ArgumentNullException">entities</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.Update(`0)">
+            <summary>
+            Updates the specified <paramref name="entity" /> in the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be updated.</param>
+            <returns>
+            The entity that was updated.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">entity</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.UpdateAsync(`0)">
+            <summary>
+            Updates the specified <paramref name="entity" /> in the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be updated.</param>
+            <returns>
+            The entity that was updated.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">entity</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.Update(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Updates the specified <paramref name="entities" /> in the underlying data repository.
+            </summary>
+            <param name="entities"></param>
+            <exception cref="T:System.ArgumentNullException">entities</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.Save(`0)">
+            <summary>
+            Saves the specified <paramref name="entity" /> in the underlying data repository by inserting if doesn't exist, or updating if it does.
+            </summary>
+            <param name="entity">The entity to be updated.</param>
+            <returns>
+            The entity that was updated.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.SaveAsync(`0)">
+            <summary>
+            Saves the specified <paramref name="entity" /> in the underlying data repository by inserting if doesn't exist, or updating if it does.
+            </summary>
+            <param name="entity">The entity to be updated.</param>
+            <returns>
+            The entity that was updated.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.Save(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Saves the specified <paramref name="entities" /> in the underlying data repository by inserting if doesn't exist, or updating if it does.
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.Delete(`1)">
+            <summary>
+            Deletes the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>The number of documents deleted</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.DeleteAsync(`1)">
+            <summary>
+            Deletes the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>The number of documents deleted</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.Delete(`0)">
+            <summary>
+            Deletes the specified <paramref name="entity" /> from the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be deleted.</param>
+            <returns>The number of documents deleted</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="entity"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.DeleteAsync(`0)">
+            <summary>
+            Deletes the specified <paramref name="entity" /> from the underlying data repository.
+            </summary>
+            <param name="entity">The entity to be deleted.</param>
+            <returns>The number of documents deleted</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="entity"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.Delete(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Deletes the specified <paramref name="entities" /> from the underlying data repository.
+            </summary>
+            <param name="entities">The entities to be deleted.</param>
+            <returns>
+            The number of documents deleted
+            </returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="entities" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.DeleteAll">
+            <summary>
+            Deletes all documents from MongoDB collection.
+            </summary>
+            <returns>The number of documents deleted</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.DeleteAllAsync">
+            <summary>
+            Deletes all documents from MongoDB collection.
+            </summary>
+            <returns>The number of documents deleted</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.DeleteAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Deletes all from collection that meet the specified <paramref name="criteria" />.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>The number of documents deleted</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.DeleteAllAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Deletes all from collection that meet the specified <paramref name="criteria" />.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>The number of documents deleted</returns>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.BeforeInsert(`0)">
+            <summary>
+            Called before an insert.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:MongoDB.Abstracts.MongoRepository`2.BeforeUpdate(`0)">
+            <summary>
+            Called before an update.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+    </members>
+</doc>

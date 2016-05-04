@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dotMongo.Core</name>
+    </assembly>
+    <members>
+        <member name="T:dotMongo.Core.DotMongoCollection`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:dotMongo.Core.DotMongoCollection`1.MongoCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.#ctor(MongoDB.Driver.IMongoDatabase)">
+            <summary>
+            
+            </summary>
+            <param name="db"></param>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.#ctor(MongoDB.Driver.IMongoDatabase,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="db"></param>
+            <param name="collectionName"></param>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Where(MongoDB.Driver.FilterDefinition{MongoDB.Bson.BsonDocument})">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.FirstOrDefault(MongoDB.Driver.FilterDefinition{MongoDB.Bson.BsonDocument})">
+            <summary>
+            Get the first result or null
+            </summary>
+            <param name="filter">MongoDB driver filter definition</param>
+            <returns>T in DotMongoCollection</returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.FirstOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Get the first result or null 
+            </summary>
+            <param name="expression">Lambda expression</param>
+            <returns>T in DotMongoCollection</returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.First(MongoDB.Driver.FilterDefinition{MongoDB.Bson.BsonDocument})">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.SingleOrDefault(MongoDB.Driver.FilterDefinition{MongoDB.Bson.BsonDocument})">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.SingleOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Single(MongoDB.Driver.FilterDefinition{MongoDB.Bson.BsonDocument})">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Single(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Delete(MongoDB.Driver.FilterDefinition{MongoDB.Bson.BsonDocument})">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.DeleteMany(MongoDB.Driver.FilterDefinition{MongoDB.Bson.BsonDocument})">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.DeleteMany(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Count(MongoDB.Driver.FilterDefinition{MongoDB.Bson.BsonDocument})">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Count">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Insert(`0)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.InsertMany(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.IsLogicalNode(System.Linq.Expressions.ExpressionType)">
+            <summary>
+            Check if node type (NodeType) is Logical Operator
+            Currently supports:
+                AndAlso, OrElse
+            </summary>
+            <param name="node">Expression Type</param>
+            <returns>Boolean (True/False)</returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.IsRelationalNode(System.Linq.Expressions.ExpressionType)">
+            <summary>
+            Check if node type (NodeType) is Relational Operator. 
+            Currently supports:  
+                Equal, Greater Than, Greater Than Equal, Less Than, Less Than Equal, Not Equal 
+            </summary>
+            <param name="node">Expression Type</param>
+            <returns>Boolean (True/False)</returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoCollection`1.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:dotMongo.Core.DotMongoDb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:dotMongo.Core.DotMongoDb.ConnectionStringName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:dotMongo.Core.DotMongoDb.Instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoDb.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoDb.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectionStringName"></param>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoDb.Ping">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoDb.GetCollection``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:dotMongo.Core.DotMongoDb.GetCollection``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collectionName"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

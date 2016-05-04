@@ -1,0 +1,39 @@
+﻿<catel:Window
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:catel="http://catel.codeplex.com"
+              xmlns:Views="clr-namespace:Aloe.Foglalások.Views"
+              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="Aloe.Foglalások.Views.MainWindow"
+              ResizeMode="CanResize">
+    <DockPanel LastChildFill="True">
+
+        <telerik:RadExpander x:Name="radExpander" IsExpanded="True" VerticalContentAlignment="Top" ExpandDirection="Right"
+								 telerik:AnimationManager.IsAnimationEnabled="{Binding ElementName=AnimationEnableCheckBox, Path=IsChecked}" 
+                             BorderThickness="2" BorderBrush="Beige">
+            <telerik:RadExpander.Header>
+                <TextBlock x:Name="expanderCaption" Text="Menü" />
+            </telerik:RadExpander.Header>
+            <telerik:RadExpander.Content>
+                <Views:MenüView />
+            </telerik:RadExpander.Content>
+        </telerik:RadExpander>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem Content="Ready" Margin="3,0,0,0"/>
+            <StatusBarItem HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal"/>
+            </StatusBarItem>
+        </StatusBar>
+
+    </DockPanel>
+
+    <!-- <catel:StackGrid x:Name="LayoutRoot">
+        <catel:StackGrid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </catel:StackGrid.RowDefinitions>
+        
+        <Label Content="{Binding Title}" />
+        <Views:MenüView Grid.Row="1" />
+    </catel:StackGrid>-->
+
+</catel:Window>

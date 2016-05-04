@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+  <XmlNodeItem Header="Törzs adatok" Tag="">
+    <Items>
+      <XmlNodeItem Header="Dolgozók" Tag="Áfatipusok" />
+      <XmlNodeItem Header="Masszőrök" Tag="Raktártipusok" />
+      <XmlNodeItem Header="Terméktipusok" Tag="Terméktipusok" />
+      <XmlNodeItem Header="Ártipusok" Tag="Ártipusok" />
+      <XmlNodeItem Header="Mértékegységek" Tag="Mértékegységek" />
+      <XmlNodeItem Header="Beszállítók lista" Tag="Beszállítók lista" />
+      <XmlNodeItem Header="Termékek" Tag="Termékek" />
+    </Items>
+  </XmlNodeItem>
+  <XmlNodeItem Header="Anyagmozgások" Tag="">
+    <Items>
+      <XmlNodeItem Header="Beszállítások" Tag="">
+        <Items>
+          <XmlNodeItem Header="Beszállítótól átvétel" Tag="Beszállítótól átvétel"/>
+          <XmlNodeItem Header="Beszállítótól átvétel lista" Tag="Beszállítótól átvétel lista"/>
+          <XmlNodeItem Header="Beszállítás feldolgozása" Tag="Beszállítás feldolgozása"/>
+          <XmlNodeItem Header="Beszállítás feldolgozáslista" Tag="Beszállítás feldolgozáslista"/>
+        </Items>
+      </XmlNodeItem>
+      <XmlNodeItem Header="Raktárak" Tag="">
+        <Items>
+          <XmlNodeItem Header="Raktári listák" Tag="Raktári listák"/>
+          <XmlNodeItem Header="Raktári mozgások listája" Tag="Raktári mozgások listája"/>
+        </Items>
+      </XmlNodeItem>
+      <XmlNodeItem Header="Lekérdezések" Tag="">
+        <Items>
+          <XmlNodeItem Header="Raktárak" Tag="Raktárak"/>
+          <XmlNodeItem Header="Kiadások" Tag="Kiadások"/>
+          <XmlNodeItem Header="Kiadásforgalom" Tag="Kiadásforgalom"/>
+          <XmlNodeItem Header="Selejtezés" Tag="Selejtezés"/>
+          <XmlNodeItem Header="Selejtezés lista" Tag="Selejtezés lista"/>
+        </Items>
+      </XmlNodeItem>
+    </Items>
+  </XmlNodeItem>
+  <XmlNodeItem Header="Lekérdezések" Tag="">
+    <Items>
+      <XmlNodeItem Header="Naplózás" Tag="Naplózás" />
+      <XmlNodeItem Header="Mérleg termékforgalma" Tag="Mérleg termékforgalma" />
+      <XmlNodeItem Header="Készlet lista" Tag="Készlet lista" />
+      <XmlNodeItem Header="Selejt termékforgalma" Tag="Selejt termékforgalma" />
+      <XmlNodeItem Header="Leltár" Tag="Leltár" />
+      <XmlNodeItem Header="Leltárok" Tag="Leltárok" />
+    </Items>
+  </XmlNodeItem>
+  <XmlNodeItem Header="Beállítások" Tag="">
+    <Items>
+      <XmlNodeItem Header="Raktár tipusok" Tag="Raktár tipusok" />
+      <XmlNodeItem Header="Mérleg megadása" Tag="Mérleg megadása" />
+    </Items>
+  </XmlNodeItem>
+</Items>
