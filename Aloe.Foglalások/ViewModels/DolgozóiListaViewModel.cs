@@ -17,7 +17,7 @@
 
         public DolgozóiListaViewModel()
         {
-            
+            //Legyen valami változáa a kódban
         }
 
         #region Properties
