@@ -8,13 +8,13 @@
     using Catel.Logging;
     using Catel.Reflection;
     using Catel.Windows;
-
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+    using MongoDB.Driver;
+    using System.Configuration;    /// <summary>
+                                   /// Interaction logic for App.xaml
+                                   /// </summary>
     public partial class App : Application
     {
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetCurrentClassLogger(); 
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -45,6 +45,9 @@
             //Log.Info("Registering custom types");
             //var serviceLocator = ServiceLocator.Default;
             //serviceLocator.RegisterType<IMyInterface, IMyClass>();
+            var serviceLocator = ServiceLocator.Default;
+            var url = new MongoUrl(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
+            serviceLocator.RegisterInstance<MongoUrl>(url);
 
             StyleHelper.CreateStyleForwardersForDefaultStyles();
 

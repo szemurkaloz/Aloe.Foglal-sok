@@ -1,12 +1,12 @@
 ﻿namespace Aloe.Foglalások.Views
 {
-    using Catel.Windows;
+    using Catel.Windows.Controls;
     using ViewModels;
 
     /// <summary>
     /// Interaction logic for DolgozóiListaView.xaml.
     /// </summary>
-    public partial class DolgozóiListaView : DataWindow
+    public partial class DolgozóiListaView : UserControl
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DolgozóiListaView"/> class.

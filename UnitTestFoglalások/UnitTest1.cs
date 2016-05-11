@@ -8,6 +8,7 @@ using Aloe.Foglalások.Models.Repository;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
+using Catel.IoC;
 
 namespace UnitTestFoglalások
 {
@@ -17,26 +18,31 @@ namespace UnitTestFoglalások
         [TestInitialize]
         public void Setup()
         {
+            var serviceLocator = ServiceLocator.Default;
+            var url = new MongoUrl(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
+            var client = new MongoClient(url);
+            serviceLocator.RegisterInstance<MongoUrl>(url);
+            serviceLocator.RegisterInstance<MongoClient>(client);
             this.DropDB();
         }
 
         [TestCleanup]
         public void Cleanup()
         {
-            this.DropDB();
+            //this.DropDB();
         }
 
         private void DropDB()
         {
-            var url = new MongoUrl(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
-            var client = new MongoClient(url);
+            var url = ServiceLocator.Default.ResolveType<MongoUrl>(); 
+            var client = ServiceLocator.Default.ResolveType<MongoClient>();
             client.DropDatabase(url.DatabaseName);
         }
 
         [TestMethod]
         public void DolgozóAddAndUpdateTest()
         {
-            var url = new MongoUrl(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
+            var url = ServiceLocator.Default.ResolveType<MongoUrl>();
             DolgozoRepository  dolgozoRepo = new DolgozoRepository(url);
 
             Assert.IsNotNull(dolgozoRepo);
@@ -90,7 +96,7 @@ namespace UnitTestFoglalások
         [TestMethod]
         public void MasszorAddAndUpdateTest()
         {
-            var url = new MongoUrl(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
+            var url = ServiceLocator.Default.ResolveType<MongoUrl>();
             MasszőrRepository masszőrRepo = new MasszőrRepository(url);
 
             Assert.IsNotNull(masszőrRepo);
@@ -123,7 +129,7 @@ namespace UnitTestFoglalások
         [TestMethod]
         public void BerletTipusAddAndUpdateTest()
         {
-            var url = new MongoUrl(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
+            var url = ServiceLocator.Default.ResolveType<MongoUrl>();
             BerletTipusRepository repo = new BerletTipusRepository(url);
 
             Assert.IsNotNull(repo);
@@ -157,7 +163,7 @@ namespace UnitTestFoglalások
         [TestMethod]
         public void IdopontAddAndUpdateTest()
         {
-            var url = new MongoUrl(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
+            var url = ServiceLocator.Default.ResolveType<MongoUrl>();
             IdopontRepository repo = new IdopontRepository(url);
 
             Assert.IsNotNull(repo);
@@ -233,7 +239,7 @@ namespace UnitTestFoglalások
         [TestMethod]
         public void SzolgaltatasTipusAddAndUpdateTest()
         {
-            var url = new MongoUrl(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
+            var url = ServiceLocator.Default.ResolveType<MongoUrl>();
             SzolgaltatasTipusRepository repo = new SzolgaltatasTipusRepository(url);
 
             Assert.IsNotNull(repo);
@@ -268,10 +274,11 @@ namespace UnitTestFoglalások
             Assert.AreEqual(szolgaltatasTipus.Count, alreadyAddedszolgaltatasTipus.Count);
 
         }
+
         [TestMethod]
         public void KezelésAddAndUpdateTest()
         {
-            var url = new MongoUrl(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
+            var url = ServiceLocator.Default.ResolveType<MongoUrl>();
             KezelesRepository repo = new KezelesRepository(url);
 
             Assert.IsNotNull(repo);
@@ -365,6 +372,20 @@ namespace UnitTestFoglalások
             Assert.IsNotNull(updatedberletTipus);
             Assert.AreEqual(updatedberletTipus.BérletNév, updatedberletTipus.BérletNév);*/
 
+        }
+
+        [TestMethod]
+        public void AlapAdatokFeltöltése()
+        {
+            var url = ServiceLocator.Default.ResolveType<MongoUrl>();
+            DolgozoRepository dolgozoRepo = new DolgozoRepository(url);
+
+            var idopontok = new List<Dolgozo>
+            {
+                new Dolgozo {Név = "Domonkos Ferdinánd",Jelszó = "Matt" },
+                new Dolgozo {Név = "Radnai Henrietta",Jelszó = "Matt" }
+            };
+            dolgozoRepo.InsertBatch(idopontok);
         }
     }
 

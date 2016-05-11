@@ -17,7 +17,7 @@
                 <Views:MenüView />
             </telerik:RadExpander.Content>
         </telerik:RadExpander>
-        <Views:MenüView />
+        <Views:DolgozóiListaView />
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem Content="Ready" Margin="3,0,0,0"/>
             <StatusBarItem HorizontalAlignment="Right">
