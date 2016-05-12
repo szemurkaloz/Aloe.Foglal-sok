@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catel.Fody.Attributes</name>
+    </assembly>
+    <members>
+        <member name="M:Catel.Fody.ExposeAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Fody.ExposeAttribute" /> class.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="propertyName" /> is <c>null</c> or whitespace.</exception>
+            <remarks>
+            Do not create default values for attribute constructors! For more information, see:
+            http://stackoverflow.com/questions/8290853/attribute-argument-must-be-a-constant-error-when-using-an-optional-parameter-in 
+            </remarks>
+        </member>
+        <member name="M:Catel.Fody.ExposeAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Fody.ExposeAttribute" /> class.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <param name="propertyNameOnModel">The property name configuration model.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="propertyName" /> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="P:Catel.Fody.ExposeAttribute.PropertyName">
+            <summary>
+              Gets the name of the property that should be automatically created.
+            </summary>
+            <value>The name of the property.</value>
+        </member>
+        <member name="P:Catel.Fody.ExposeAttribute.PropertyNameOnModel">
+            <summary>
+              Gets or sets the name of the property on the model. If the <see cref = "P:Catel.Fody.ExposeAttribute.PropertyName" /> is not the
+              same as the name of the property on the model, this can be used to map the properties.
+              <para />
+              By default, the value is the same as the <see cref="P:Catel.Fody.ExposeAttribute.PropertyName"/>.
+              <example>
+                In this example, the name of the property to map on the model is <c>first_name</c>, but
+                it must be available as <c>FirstName</c> on the view model.
+                <code>
+                  <![CDATA[
+                    [Model]
+                    [Expose("FirstName", "first_name")]
+                    public Person Person { get; set; }
+                  ]]>
+                </code>
+              </example>
+            </summary>
+            <value>The property name on model.</value>
+        </member>
+        <member name="P:Catel.Fody.ExposeAttribute.IsReadOnly">
+            <summary>
+            Gets a value indicating whether this property is read only.
+            </summary>
+            <value><c>true</c> if this property is read only; otherwise, <c>false</c>.</value>
+        </member>
+    </members>
+</doc>

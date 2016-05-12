@@ -1,0 +1,23 @@
+SRCSRV: ini ------------------------------------------------
+VERSION=2
+SRCSRV: variables ------------------------------------------
+SRCSRVVERCTRL=https
+SRCSRVTRG=https://raw.github.com/Catel/Catel.Fody/a0183a0e86652fc1f24bbbe2b9656178aff7ea49/%var2%
+SRCSRV: source files ---------------------------------------
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\SolutionAssemblyInfo.cs*src/SolutionAssemblyInfo.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\ImplementsInterfaceAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/ImplementsInterfaceAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\InheritsFromAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/InheritsFromAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\MatchAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/MatchAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\MaximumAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/MaximumAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\MinimalAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/MinimalAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\NotMatchAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/NotMatchAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\NotNullAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/NotNullAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\NotNullOrEmptyArrayAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/NotNullOrEmptyArrayAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\NotNullOrEmptyAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/NotNullOrEmptyAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\NotNullOrWhitespaceAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/NotNullOrWhitespaceAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\NotOutOfRangeAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/NotOutOfRangeAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\ArgumentAttributes\OfTypeAttribute.cs*src/Catel.Fody.Attributes/ArgumentAttributes/OfTypeAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\NoWeavingAttribute.cs*src/Catel.Fody.Attributes/NoWeavingAttribute.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\Properties\AssemblyInfo.cs*src/Catel.Fody.Attributes/Properties/AssemblyInfo.cs
+C:\CI_WS\Ws\89943\Source\Catel_Fody\src\Catel.Fody.Attributes\PropertyAttributes\ExposeAttribute.cs*src/Catel.Fody.Attributes/PropertyAttributes/ExposeAttribute.cs
+SRCSRV: end ------------------------------------------------

@@ -33,3 +33,5 @@ C:\Users\KNZ\Documents\Visual Studio 2015\Projects\Aloe\Aloe.Foglalások\Aloe.Fo
 C:\Users\KNZ\Documents\Visual Studio 2015\Projects\Aloe\Aloe.Foglalások\Aloe.Foglalások\obj\Debug\Views\MenüView.baml
 C:\Users\KNZ\Documents\Visual Studio 2015\Projects\Aloe\Aloe.Foglalások\Aloe.Foglalások\obj\Debug\Views\DolgozóiListaView.baml
 C:\Users\KNZ\Documents\Visual Studio 2015\Projects\Aloe\Aloe.Foglalások\Aloe.Foglalások\obj\Debug\Views\DolgozóiListaView.g.cs
+C:\Users\KNZ\Documents\Visual Studio 2015\Projects\Aloe\Aloe.Foglalások\Aloe.Foglalások\obj\Debug\Views\DolgozóView.g.cs
+C:\Users\KNZ\Documents\Visual Studio 2015\Projects\Aloe\Aloe.Foglalások\Aloe.Foglalások\obj\Debug\Views\DolgozóView.baml
